@@ -1,0 +1,27 @@
+# General settings
+name: STTMT-S
+use_tb_logger: false #true
+model: STTMT
+scale: 4
+gpu_ids: [4]
+
+# Dataset
+dataset:
+  name: Vimeo90k_septuplet
+  mode: fast
+  dataset_root: /mnt/Temp_new/QXT/VSRdataset/Vimeo-90K/vimeo_septuplet/sequences_LR
+  num_out_frames: 7
+
+# Network structures
+network:
+  embed_dim: 96
+  depths: [4, 4, 4, 4, 4, 4, 4, 4]
+  num_heads: [2, 4, 8, 16, 16, 8, 4, 2]
+  window_sizes: [[4,4], [4,4], [4,4], [4,4], [4,4], [4,4], [4,4], [4,4]]
+  back_RBs: 10
+
+# Path
+path:
+  pretrain_model: ~
+  strict_load: true 
+  output_dir: ./results

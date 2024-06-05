@@ -1,0 +1,26 @@
+# General settings
+name: STTMT-L
+use_tb_logger: false #true
+model: STTMT
+scale: 4
+gpu_ids: [4]
+
+# Dataset
+dataset:
+  name: Vid4
+  dataset_root: /mnt/Temp_new/QXT/dataset/Vid4_1
+  num_out_frames: 7
+
+# Network structures5
+network:
+  embed_dim: 96
+  depths: [8, 8, 8, 8, 8, 8, 8, 8]
+  num_heads: [2, 4, 8, 16, 16, 8, 4, 2]
+  window_sizes: [[4,4], [4,4], [4,4], [4,4], [4,4], [4,4], [4,4], [4,4]]
+  back_RBs: 10
+
+# Path
+path:
+  pretrain_model: /mnt/Temp_new/QXT/second_point/RSTT/ckpt/STTMT-L-Vid4.pth
+  strict_load: False
+  output_dir: ./results
